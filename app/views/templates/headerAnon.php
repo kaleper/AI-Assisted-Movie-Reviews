@@ -1,12 +1,3 @@
-<?php
-/* File to be used when user is logged in. Contains boilerplate code and navbar code. */
-
-  // If user is not authenticated, redirect to login view.
-  if (!isset($_SESSION['auth'])) {
-    header('Location: /login');
-  }
-?>
-    
 <head>
   <!DOCTYPE html>
   <html lang="en">
@@ -20,7 +11,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
 </head>
-    
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
