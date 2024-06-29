@@ -1,7 +1,9 @@
-        <footer class="footer">    
+        <footer class="text-center fixed-bottom">    
             <div class="container">
-                <div class="col-12">
-                    <p>Copyright &copy; <?php echo date('Y'); ?> </p>
+                <div class="row">
+                    <div class="text-center p-3" >
+                        <p>Copyright &copy; <?php echo date('Y'); ?> </p>
+                    </div>
                 </div>
             </div>
         
