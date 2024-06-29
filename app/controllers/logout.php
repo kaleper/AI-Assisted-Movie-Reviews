@@ -1,7 +1,8 @@
 <?php
 
-class Logout extends Controller {
+class About extends Controller {
 
-    public function index() {		
+    public function index() {	
+        $this->$view('about/index');
     }
 }

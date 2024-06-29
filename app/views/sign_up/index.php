@@ -1,4 +1,4 @@
-<?php require_once 'app/views/templates/headerPublic.php' ?>
+<?php require_once 'app/views/templates/headerAnon.php' ?>
 
 <main>
   <div class="form row justify-content-center">
