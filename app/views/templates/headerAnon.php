@@ -22,12 +22,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
-          <li class="nav-item">
+          <li class="nav-item fw-bold">
             <a class="nav-link active" aria-current="page" href="/home">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item fw-bold">
             <a class="nav-link active" aria-current="page" href="/about">About</a>
           </li>
+          <li class="nav-item fw-bold">
+            <a class="nav-link active" aria-current="page" href="/login">Login</a>
+          </li>
+          <li class="nav-item border fw-bold ms-2 bg-white">
+            <a class="nav-link active" aria-current="page" href="/sign_up">Sign Up</a>
+          </li>
+          
         </ul>
       </div>
     </div>
