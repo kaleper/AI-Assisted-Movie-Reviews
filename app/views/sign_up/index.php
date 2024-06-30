@@ -1,15 +1,32 @@
-<?php require_once 'app/views/templates/headerAnon.php' ?>
+<?php require_once 'app/views/templates/headerAnon.php'?>
+
+<?php
+  // Displays username taken message if user tries to register with a taken username
+  if ($_SESSION['taken_username_message']) {
+    echo "<div class='container text-center'>" .
+            "<div class='col-lg-12 mt-5'>".
+              "<h5 class = 'text-danger'><br>" .
+                $_SESSION['taken_username_message'] .
+              "</h5>" .
+            "</div>" .
+         "</div>"
+    ;
+
+    // Unset session variable to display message only once 
+    unset($_SESSION['taken_username_message']);
+  }; 
+?>
 
 <main>
   <div class="form row justify-content-center">
-      <div class="col-12 col-sm-8 col-md-6 col-xl-4">
-        <div class="form-container text-center mt-5 mb-3 px-5 py-5">
-        <form action="/create/newAcc" method="post" >
+    <div class="col-12 col-sm-8 col-md-6 col-xl-4">
+      <div class="form-container text-center mt-5 mb-3 px-5 py-5">
+        <form action="/sign_up/newAcc" method="post" >
           <h1 class="header h2 fw-normal">Register</h1>
           <fieldset class="container mt-4">
             <div class="form-group mb-1">
               <label class="visually-hidden">Username</label>
-                <!-- Uses regular expression, username must have at least 3 characters -->
+              <!-- Uses regular expression, username must have at least 3 characters -->
               <input type="text" class="form-control" name="username" placeholder="Username" pattern=".{3,}" required autofocus>
             </div>
             <div class="username-requirement text-start ms-1">Must contain 3 characters

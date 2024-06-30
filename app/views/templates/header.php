@@ -1,5 +1,6 @@
 <?php
-/* File to be used when user is logged in. Contains boilerplate code and navbar code. */
+/* ***TODO: FIX NAV-BAR CURRENT PAGE***
+File to be used when user is logged in. Contains boilerplate code and navbar code. */
 
   // If user is not authenticated, redirect to login view.
   if (!isset($_SESSION['auth'])) {
@@ -31,17 +32,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
-            <li class="nav-item">
+            <li class="nav-item fw-bold">
               <a class="nav-link active" aria-current="page" href="/home">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
+            <li class="nav-item fw-bold" aria-current="page">
+              <a class="nav-link active" href="#">Profile</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item fw-bold" aria-current="page">
               <a class="nav-link active" aria-current="page" href="/about">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
+            <li class="nav-item fw-bold">
+              <a class="nav-link active" href="/logout">Logout</a>
             </li>
           </ul>
         </div>

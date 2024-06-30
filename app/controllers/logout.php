@@ -1,8 +1,14 @@
 <?php
 
-class About extends Controller {
+class Logout extends Controller {
 
-    public function index() {	
-        $this->$view('about/index');
+    // Destory the session and redirect back to the login page 
+    public function index() {		
+        session_start();
+        $_SESSION = array();
+        session_destroy();
+        $_SESSION['auth'] = 0;
+        header('location: /home');
+        $this->view('home/index');
     }
 }

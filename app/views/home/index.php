@@ -1,4 +1,20 @@
-<?php require_once 'app/views/templates/headerAnon.php'; ?>
+<?php if ($_SESSION['auth'] == 1) {
+        require_once 'app/views/templates/header.php';
+
+    echo "
+            <div class='container main'>
+                <div class='row mt-4'>
+                    <div class='col-lg-12'>
+                        <h4 class='greeting'>Welcome, " . $_SESSION['username'] . "</h4>
+                        <p id='date'> <span id ='date-label'>Today's Date:</span> " . date('F jS, Y') . "</p>
+                    </div>
+                </div>
+            </div>
+        ";
+        } else {
+            require_once 'app/views/templates/headerAnon.php';
+        }
+    ?>
 
 <!-- Form to create a reminder -->
 <div class="form row justify-content-center">
