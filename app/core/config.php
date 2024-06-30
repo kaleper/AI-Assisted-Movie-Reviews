@@ -13,8 +13,8 @@ define('LOGS', ROOT . DS . 'logs');
 define('FILES', ROOT . DS. 'files');
 
 // ---------------------  NEW DATABASE TABLE -------------------------
-define('DB_HOST',         'eld.h.filess.io');
-define('DB_USER',         'cosc4806_presentwet'); 
+define('DB_HOST',         '4mj.h.filess.io');
+define('DB_USER',         'Movies_getcoastup'); 
 define('DB_PASS',         $_ENV['DB_PASS']);
-define('DB_DATABASE',     'cosc4806_presentwet');
+define('DB_DATABASE',     'Movies_getcoastup');
 define('DB_PORT',         '3305');
