@@ -1,3 +1,5 @@
+<!-- Because headerPublic.php and header.php have redirects, new header needs to be made. Will used for anonymous users that want to make reviews or search
+
 <head>
   <!DOCTYPE html>
   <html lang="en">

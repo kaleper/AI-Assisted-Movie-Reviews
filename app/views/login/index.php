@@ -1,4 +1,4 @@
-<?php require_once 'app/views/templates/headerAnon.php' ?>
+<?php require_once 'app/views/templates/headerPublic.php' ?>
 
 <?php // *INITIAL PHP shows messages based on login attempts or account creation*
 
@@ -6,7 +6,7 @@
   if (isset($_SESSION['failedAuth']) && $_SESSION['failedAuth'] < 3 && isset($_SESSION['failedAuthMsg'])) {
 
     // Displays below message if failed auths < 3
-    echo "<div class='container text-center'>" .
+    echo "<div class='container text-centesr'>" .
             "<div class='col-lg-12 mt-5'>".
               "<h5 class = 'text-danger'> INVALID CREDENTIALS ENTERED <br>" .
                   "<span class='p'>" . "Number of failed login attempts: " . $_SESSION['failedAuth'] .  "</span> <br>" . 

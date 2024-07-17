@@ -19,4 +19,29 @@ if (isset($_SESSION['auth']) == 1) {
 </head>
     
 <body>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-3 h1" href="/home"> <img src="/app/views/resources/images/logo.svg" width="35" height="35" alt="logo" class ='me-3'>
+            Movies</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
+                    <li class="nav-item fw-bold">
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item fw-bold" aria-current="page">
+                        <a class="nav-link active" aria-current="page" href="/about">About</a>
+                    </li>
+                    <li class="nav-item fw-bold">
+                        <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item border fw-bold ms-2 bg-white">
+                        <a class="nav-link active" aria-current="page" href="/sign_up">Sign Up</a>
+                    </li>
+                </ul>
+                    
+            </div>
+        </div>
+    </nav>
