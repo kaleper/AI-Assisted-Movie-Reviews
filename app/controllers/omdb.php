@@ -19,7 +19,12 @@ class OMdb extends Controller {
 
     // Pass the movie data to the view
    
-    $this->view('movie/index', ['movie' => $movie]);
+    $this->view('movie/index', [
+        'movie' => $movie,
+        'title' => $title,
+        'year' => $year
+    ]);
+              
     header ('location: /movie/index');
     die;
     }

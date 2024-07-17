@@ -23,13 +23,14 @@
             <form action="/omdb/index" method="post">
                 <h1 class="header h2 fw-normal">Search for a movie</h1>
                 <fieldset class="container mt-4">
-                    <div class="form-group mb-1">
+                    <div class="form-group mb-3 d-flex flex-column align-items-center">
                         <label class="visually-hidden">Movie</label>
-                        <label for="title">Title:</label>
-                        <input type="text" id="title" name="title" required>
-                        <br>
-                        <label for="year">Year:</label>
-                        <input type="text" id="year" name="year">
+                        <label for="title" class="mb-1"><strong>Title</strong></label>
+                        <input type="text" id="title" name="title" class="mb-2 form-control w-50" required>
+                        <label for="year" class="mb-1">
+                            <i><strong>Year</strong> (Optional)</i>
+                        </label>
+                        <input type="text" id="year" name="year" class="mb-2 form-control w-50" >
                     </div>
                     <div class="button mt-3">
                         <button type="submit" class="btn btn-primary">Search</button>
