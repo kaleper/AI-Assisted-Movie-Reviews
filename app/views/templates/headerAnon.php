@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand ms-3 h1" href="/home"> <img src="app/views/resources/images/logo.svg" width="35" height="35" alt="logo" class ='me-3'>
+      <a class="navbar-brand ms-3 h1" href="/home"> <img src="/app/views/resources/images/logo.svg" width="35" height="35" alt="logo" class ='me-3'>
         Movies</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
