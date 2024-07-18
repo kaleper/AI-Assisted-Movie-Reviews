@@ -20,6 +20,8 @@ File to be used when user is logged in. Contains boilerplate code and navbar cod
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f127f3297c.js" crossorigin="anonymous"></script>
 </head>
     
 <body>

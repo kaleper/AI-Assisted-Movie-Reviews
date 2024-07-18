@@ -45,15 +45,16 @@
                                 <strong>Plot: </strong>" . htmlspecialchars($data['movie']['Plot']) . "
                             </p>
                             <h3>
-                                <strong>Give A Rating For:  </strong>" .$data['movie']['Title'] . "
-                                    <span> 
-                                        <a href='review/". $data['movie']['Title'] . "/1'>1</a> 
-                                        <a href='review/". $data['movie']['Title'] . "/2'>2</a> 
-                                        <a href='review/". $data['movie']['Title'] . "/3'>3</a> 
-                                        <a href='review/". $data['movie']['Title'] . "/4'>4</a> 
-                                        <a href='review/". $data['movie']['Title'] . "/5'>5</a> 
-                                    </span>
+                               <strong>Give A Rating For: </strong>" . $data['movie']['Title'] . "
+                                   <span class='star-rating'>
+                                      <a id='1star' href='review/" . $data['movie']['Title'] . "/1' data-rating='1'><i class='fa-solid fa-star'></i></a>
+                                      <a id='2stars' href='review/" . $data['movie']['Title'] . "/2' data-rating='2'><i class='fa-solid fa-star'></i></a>
+                                      <a id='3stars' href='review/" . $data['movie']['Title'] . "/3' data-rating='3'><i class='fa-solid fa-star'></i></a>
+                                      <a id='4stars' href='review/" . $data['movie']['Title'] . "/4' data-rating='4'><i class='fa-solid fa-star'></i></a>
+                                      <a id='5stars' href='review/" . $data['movie']['Title'] . "/5' data-rating='5'><i class='fa-solid fa-star'></i></a>
+                                   </span>
                             </h3>
+                            
                         </div>
                     </div>
                 ";
