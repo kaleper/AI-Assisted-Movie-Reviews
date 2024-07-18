@@ -39,5 +39,10 @@ class OMdb extends Controller {
     // echo "<pre>";
     // print_r($movie);
     // die;
-    
+
+
+  public function review($movie_title, $rating) {
+    var_dump($movie_title);
+    var_dump($rating);
   }
+}

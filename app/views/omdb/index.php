@@ -44,6 +44,16 @@
                             <p>
                                 <strong>Plot: </strong>" . htmlspecialchars($data['movie']['Plot']) . "
                             </p>
+                            <h3>
+                                <strong>Give A Rating For:  </strong>" .$data['movie']['Title'] . "
+                                    <span> 
+                                        <a href='review/". $data['movie']['Title'] . "/1'>1</a> 
+                                        <a href='review/". $data['movie']['Title'] . "/2'>2</a> 
+                                        <a href='review/". $data['movie']['Title'] . "/3'>3</a> 
+                                        <a href='review/". $data['movie']['Title'] . "/4'>4</a> 
+                                        <a href='review/". $data['movie']['Title'] . "/5'>5</a> 
+                                    </span>
+                            </h3>
                         </div>
                     </div>
                 ";
