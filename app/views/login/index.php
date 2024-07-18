@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/app/views/css/login.css">
 <?php require_once 'app/views/templates/headerPublic.php' ?>
 
 <?php // *INITIAL PHP shows messages based on login attempts or account creation*

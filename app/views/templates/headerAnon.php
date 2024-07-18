@@ -1,5 +1,4 @@
-<!-- Because headerPublic.php and header.php have redirects, new header needs to be made. Will used for anonymous users that want to make reviews or search
-
+<!-- Because headerPublic.php and header.php have redirects, new header needs to be made. Will used for anonymous users that want to make reviews or search -->
 <head>
   <!DOCTYPE html>
   <html lang="en">
@@ -36,8 +35,7 @@
           <li class="nav-item border fw-bold ms-2 bg-white">
             <a class="nav-link active" aria-current="page" href="/sign_up">Sign Up</a>
           </li>
-          
         </ul>
       </div>
     </div>
-</nav>
+  </nav>

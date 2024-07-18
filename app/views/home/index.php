@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/app/views/css/home.css">
 <?php if ($_SESSION['auth'] == 1) {
         require_once 'app/views/templates/header.php';
 

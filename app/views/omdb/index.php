@@ -1,10 +1,10 @@
+<link rel="stylesheet" href="/app/views/css/omdb.css">
 <?php if ($_SESSION['auth'] == 1) {
       require_once 'app/views/templates/header.php';
   } else {
       require_once 'app/views/templates/headerAnon.php';
   }
 ?>
-
 
 <div class="row justify-content-center">
     <div class="col-12 col-sm-10 col-md-9 col-xl-8">
@@ -55,5 +55,4 @@
         ?>
     </div>
 </div>
-
 <?php require_once 'app/views/templates/footer.php' ?>

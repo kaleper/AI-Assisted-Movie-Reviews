@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="app/views/css/sign_up.css">
 <?php require_once 'app/views/templates/headerAnon.php'?>
 
 <?php
@@ -51,6 +52,6 @@
       </div>
     </div>
   </div>
-</div>
+</main>
 
 <?php require_once 'app/views/templates/footer.php' ?>
