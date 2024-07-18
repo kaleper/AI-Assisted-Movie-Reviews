@@ -10,7 +10,7 @@
                 Copyright &copy; <?php echo date('Y'); ?>
               </div>
               <div class="credit-wrapper d-block text-secondary fs-10 text-center text-sm-start">
-                  Sample Site for Reminders
+                  Movie Reviews
               </div>
             </div>
             <!-- Icons to social media, concenpt -->
