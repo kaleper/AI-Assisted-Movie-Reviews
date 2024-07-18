@@ -16,12 +16,42 @@
                 
             } else if (isset($data['movie']) && !empty($data['movie'])) { 
                 // var_dump($data['movie']);
-                echo "<h2>Movie search results for: " . htmlspecialchars($data['movie']['title']) . "</h2>";
 
-                foreach ($data['movie'] as $key => $value) { 
-                    echo "<p><strong>" . htmlspecialchars($key) . ":</strong> " . htmlspecialchars($value) . "</p>";
-                }
+                
+                echo "<h2 class ='mb-5'>Movie search results for: " . htmlspecialchars($data['title']) . "</h2>";
+
+                echo "
+                    <div class='d-flex'>
+                        <div class='flex-shrink-0'>
+                            <img src='" . htmlspecialchars($data['movie']['Poster']) . "' alt='Movie Poster for " . htmlspecialchars($data['title']) . "' class='img-fluid'>
+                        </div>
+                        <div class='flex-grow-1 ms-3'>
+                            <p>
+                                <strong>Title: </strong>" . htmlspecialchars($data['movie']['Title']) . " (" . htmlspecialchars($data['movie']['Year']) . ")
+                            </p>
+                            <p>
+                                <strong>Rated: </strong>" . htmlspecialchars($data['movie']['Rated']) . "
+                            </p>
+                            <p>
+                                <strong>Released: </strong>" . htmlspecialchars($data['movie']['Released']) . "
+                            </p>
+                            <p>
+                                <strong>Director: </strong>" . htmlspecialchars($data['movie']['Director']) . "
+                            </p>
+                            <p>
+                                <strong>Actors: </strong>" . htmlspecialchars($data['movie']['Actors']) . "
+                            </p>
+                            <p>
+                                <strong>Plot: </strong>" . htmlspecialchars($data['movie']['Plot']) . "
+                            </p>
+                        </div>
+                    </div>
+                ";
+
+                // foreach ($data['movie'] as $key => $value) { 
+                //     echo "<p><strong>" . htmlspecialchars($key) . ":</strong> " . htmlspecialchars($value) . "</p>";
             }
+            
         ?>
     </div>
 </div>

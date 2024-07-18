@@ -1,6 +1,6 @@
 <?php
 
-class SearchMovie {
+class OmdbApi {
 
   public function __construct() {
 

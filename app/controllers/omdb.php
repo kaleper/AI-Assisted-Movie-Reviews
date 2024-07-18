@@ -13,7 +13,7 @@ class OMdb extends Controller {
         $year = $_POST['year'];
 
         // Fetch the movie data from the model
-        $searchMovie = $this->model('SearchMovie');
+        $searchMovie = $this->model('OmdbApi');
         $movie = $searchMovie->getMovie($title, $year);
       }
 
