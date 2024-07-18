@@ -1,0 +1,24 @@
+body {
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+/* Position absolute needed to make it directional */
+.star-rating {
+
+  position:absolute;
+  direction:rtl;
+  
+}
+.star-rating a {
+   text-decoration: none;
+  /* Default star color */
+   color: #ccc; 
+}
+
+/* Yellow color for hovered stars and their preceding siblings; reversed above to make it incremental */
+.star-rating a:hover,
+.star-rating a:hover ~ a {
+   color: #ff0; 
+}
+

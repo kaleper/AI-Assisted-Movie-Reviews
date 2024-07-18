@@ -42,7 +42,67 @@ class OMdb extends Controller {
 
 
   public function review($movie_title, $rating) {
-    var_dump($movie_title);
-    var_dump($rating);
+
+      $stars = '';
+      switch ($rating) {
+          case "1":
+              $stars = "
+            
+              <i class='fa-solid fa-star'></i>
+                <i class='fa-regular fa-star'></i>
+                <i class='fa-regular fa-star'></i>
+                <i class='fa-regular fa-star'></i>
+                <i class='fa-regular fa-star'></i>
+              ";
+              break;
+        
+          case "2":
+              $stars = "
+            
+                <i class='fa-solid fa-star'></i>
+                  <i class='fa-solid fa-star'></i>
+                  <i class='fa-regular fa-star'></i>
+                  <i class='fa-regular fa-star'></i>
+                  <i class='fa-regular fa-star'></i>
+              ";
+              break;
+        
+          case "3":
+          $stars = "
+              <i class='fa-solid fa-star'></i>
+              <i class='fa-solid fa-star'></i>
+              <i class='fa-solid fa-star'></i>
+              <i class='fa-regular fa-star'></i>
+              <i class='fa-regular fa-star'></i>
+          ";
+          break;
+        
+          case "4":
+          $stars = "
+          <i class='fa-solid fa-star'></i>
+          <i class='fa-solid fa-star'></i>
+          <i class='fa-solid fa-star'></i>
+          <i class='fa-solid fa-star'></i>
+          <i class='fa-regular fa-star'></i>
+              
+          ";
+          break;
+
+          case "5":
+          $stars = "
+              <i class='fa-solid fa-star'></i>
+          <i class='fa-solid fa-star'></i>
+          <i class='fa-solid fa-star'></i>
+          <i class='fa-solid fa-star'></i>
+          <i class='fa-solid fa-star'></i>
+          ";
+          break;
+      }
+    $this->view('omdb/review', [
+        'movie_title' => $movie_title,
+        'stars' => $stars
+    ]);
+
+ 
   }
 }
