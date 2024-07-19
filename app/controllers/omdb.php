@@ -108,7 +108,7 @@ class OMdb extends Controller {
             array(
                 "role" => "user",            
                 "parts" => array(
-                    "text" => "Please give a review of Heriditary from someone who gave it a rating of $rating stars out of 5 stars."
+                    "text" => "Please give a review of Heriditary from someone who gave it a rating of $rating stars out of 5 stars. Please include the movie title as well as the rating."
                     )
                 )
             )
@@ -117,6 +117,7 @@ class OMdb extends Controller {
       // Convert this data in JSON format to be sent through google api
       $json_data = json_encode($data);
 
+      // Use CURL to transfer data
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
       curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
@@ -128,13 +129,21 @@ class OMdb extends Controller {
           echo "Curl Errors: " . curl_error($ch);
       }
 
-      echo "<pre>";
-      echo $response;
-          die;
+      // Test response in json
+      // echo "<pre>";
+      // echo $response;
+      
+      // Decode the JSON response into php array (true param)
+      $response_php = json_decode($response, true);
+
+      // Get's AI generated response in the array
+      $review_text = $response_php['candidates'][0]['content']['parts'][0]['text'];        
+     
       
     $this->view('omdb/review', [
         'movie_title' => $movie_title,
-        'stars' => $stars
+        'stars' => $stars,
+        'review_text' => $review_text
     ]);
 
  
