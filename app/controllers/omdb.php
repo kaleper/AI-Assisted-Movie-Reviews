@@ -98,6 +98,40 @@ class OMdb extends Controller {
           ";
           break;
       }
+
+      // GEMINI
+ $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" . $_ENV['GOOGLE_API_KEY'];
+
+      
+      $data = array(
+        "contents" => array(
+            array(
+                "role" => "user",            
+                "parts" => array(
+                    "text" => "Please give a review of Heriditary from someone who gave it a rating of $rating stars out of 5 stars."
+                    )
+                )
+            )
+          );
+
+      // Convert this data in JSON format to be sent through google api
+      $json_data = json_encode($data);
+
+      $ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      $response = curl_exec($ch);
+      curl_close($ch);
+      if (curl_errno($ch)) {
+          echo "Curl Errors: " . curl_error($ch);
+      }
+
+      echo "<pre>";
+      echo $response;
+          die;
+      
     $this->view('omdb/review', [
         'movie_title' => $movie_title,
         'stars' => $stars
