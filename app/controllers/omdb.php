@@ -28,17 +28,7 @@ class OMdb extends Controller {
     header ('location: /omdb/index');
     die;
     }
-    // // Should be a in a model
-    // $query_url = "https://www.omdbapi.com/?apikey=" . $_ENV['OMDB_KEY'] . "&t=the+matrix&y=1999";
-    
-    // $json = file_get_contents($query_url);
-    // $phpObj = json_decode($json);
-    // // For each loop to get all the info
-    // $movie = (array) $phpObj;
-    
-    // echo "<pre>";
-    // print_r($movie);
-    // die;
+   
     
     
     public function review($movie_title, $rating) {
@@ -103,48 +93,10 @@ class OMdb extends Controller {
               $star_amount = 5;
               break;
       }
-    
-      // GEMINI
-    $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" . $_ENV['GOOGLE_API_KEY'];
-    
-      
-      $data = array(
-        "contents" => array(
-            array(
-                "role" => "user",            
-                "parts" => array(
-                    "text" => "Please give a review of Heriditary from someone who gave it a rating of $rating stars out of 5 stars. Please include the movie title as well as the rating."
-                    )
-                )
-            )
-          );
-    
-      // Convert this data in JSON format to be sent through google api
-      $json_data = json_encode($data);
-    
-      // Use CURL to transfer data
-      $ch = curl_init($url);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      $response = curl_exec($ch);
-      curl_close($ch);
-      if (curl_errno($ch)) {
-          echo "Curl Errors: " . curl_error($ch);
-      }
-    
-      // Test response in json
-      // echo "<pre>";
-      // echo $response;
-      
-      // Decode the JSON response into php array (true param)
-      $response_php = json_decode($response, true);
-    
-      // Get's AI generated response in the array
-      $review_text = $response_php['candidates'][0]['content']['parts'][0]['text'];        
-     
-      
+    $gemini = $this->model('GeminiApi');
+    $review_text = $gemini->generateAIReview($rating);
+
+        
     $this->view('omdb/review', [
         'movie_title' => $movie_title,
         'stars' => $stars,
@@ -163,6 +115,9 @@ class OMdb extends Controller {
          var_dump($star_amount);
          var_dump($movie_title);
          var_dump($review_text);
+
+    //TODO: FIX THIS:
+         // $review = $this->model('createReview');
     
     }
 }
