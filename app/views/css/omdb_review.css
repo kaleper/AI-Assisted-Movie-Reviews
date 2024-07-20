@@ -21,4 +21,8 @@ body {
 .star-rating a:hover ~ a {
    color: #ff0; 
 }
+.ai_review_text {
+  
+  height:250px;
+}
 
