@@ -30,7 +30,7 @@
                     </div>
                     <input type="radio" id="yes" name="use_ai_review" value="yes" checked> Yes
                     <input type="radio" id="no" name="use_ai_review" value="no"> No
-                    <textarea id="review_text" name="review_text" class="ai_review_text mb-2 form-control w-100" required placeholder="Optional Review"><?php echo htmlspecialchars($data['review_text']); ?></textarea>
+                    <textarea id="review_text" name="review_text" class="ai_review_text mb-2 form-control w-100" placeholder="Optional Review"><?php echo htmlspecialchars($data['review_text']); ?></textarea>
                     <div class='button mt-3'>
                         <button type='submit' class='btn btn-primary'>Submit Review</button>
                     </div>
