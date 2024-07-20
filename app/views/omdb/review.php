@@ -2,9 +2,20 @@
 
 <!-- If user is authenticated, gives logged in header - otherwise gives an anonymous header -->
 <?php if ($_SESSION['auth'] == 1) {
+    
       require_once 'app/views/templates/header.php';
+    
+      // Submitted in form to go along with review 
+      $username = $_SESSION['username'];
+
+    
   } else {
+    
       require_once 'app/views/templates/headerAnon.php';
+        
+        // Username saved as null if anonymous user 
+        $username = NULL;
+        
   }
 ?>
 
@@ -21,7 +32,11 @@
                         <input type="hidden" name="stars" value="<?php echo htmlspecialchars($data['stars']); ?>">
                         <input type="hidden" name="star_amount" value="<?php echo htmlspecialchars($data['star_amount']); ?>">
                         <input type="hidden" name="year" value="<?php echo htmlspecialchars($data['year']); ?>">
-
+                        <input type='hidden' name='username' value="<?php echo $username ?>"
+                        <!-- If user is logged in, also saves the username to be associated with the review -->
+                      
+                        <!-- If user is authenticated, saves the username so that the review can be associated with the user -->
+                        
                         <!-- Movie title and rating from search page -->
                         <?php 
                             echo "<p> You rated " .$data['movie_title'] . "(" . $data['year'] . ")" .

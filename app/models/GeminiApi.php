@@ -49,8 +49,14 @@ class GeminiApi {
       return $review_text;
   }
    //TODO: FIX THIS:
-  public function createReview($movie_title, $star_amount, $review_text, $year) {
+  public function createReview($movie_title, $star_amount, $review_text, $year, $username) {
 
+    // Checks if username was passed from session variable in view
+    if ($username == null) {
+      $anonymous_review = 1;
+    } else {
+      $anonymous_review = 0;
+    }
     // Start connection to database
     $db = db_connect();
 
@@ -62,10 +68,8 @@ class GeminiApi {
     // Bind values to the placeholders
     $statement->bindValue(':movie_title', $movie_title);
     $statement->bindValue(':movie_year', $year);
-      // TODO: Replace when I add logic in for anonymous person
-    $statement->bindValue(':anonymous_review', 1);
-    // TODO: Replace when I add logic in for logged in user to post review
-    $statement->bindValue(':username', "FAKEUSER");
+    $statement->bindValue(':anonymous_review', $anonymous_review);
+    $statement->bindValue(':username', $username);
     $statement->bindValue(':rating', $star_amount);
 
     $statement->execute();

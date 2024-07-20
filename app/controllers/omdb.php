@@ -117,14 +117,16 @@ class OMdb extends Controller {
          // var_dump($star_amount);
          $year = $_REQUEST['year'];
 
+         $username= $_REQUEST['username'];
+        
          $gemini = $this->model('GeminiApi');
-         $post_review= $gemini->createReview($movie_title, $star_amount, $review_text, $year);
+         $post_review= $gemini->createReview($movie_title, $star_amount, $review_text, $year, $username);
 
 
          // Set the session variable to indicate a review was placed
          $_SESSION['review_placed'] = true;
+         
          // Redirect back
-         //TODO: Fix this view, decide how to display that I placed a review okay
          header ('location: /home');
     
     }
