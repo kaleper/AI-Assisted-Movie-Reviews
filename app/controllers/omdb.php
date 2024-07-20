@@ -125,7 +125,7 @@ class OMdb extends Controller {
          $_SESSION['review_placed'] = true;
          // Redirect back
          //TODO: Fix this view, decide how to display that I placed a review okay
-         header ('location: /omdb/index');
+         header ('location: /home');
     
     }
 }
