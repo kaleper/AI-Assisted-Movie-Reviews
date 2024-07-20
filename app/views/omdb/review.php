@@ -20,11 +20,12 @@
                         <input type="hidden" name="movie_title" value="<?php echo htmlspecialchars($data['movie_title']); ?>">
                         <input type="hidden" name="stars" value="<?php echo htmlspecialchars($data['stars']); ?>">
                         <input type="hidden" name="star_amount" value="<?php echo htmlspecialchars($data['star_amount']); ?>">
+                        <input type="hidden" name="year" value="<?php echo htmlspecialchars($data['year']); ?>">
 
                         <!-- Movie title and rating from search page -->
                         <?php 
-                            echo "<p> You rated '" .$data['movie_title'] . 
-                                 "': " . $data['stars'] . "</p>";
+                            echo "<p> You rated " .$data['movie_title'] . "(" . $data['year'] . ")" .
+                                 ": " . $data['stars'] . "</p>";
                         ?>
                         <label for="use_ai_review">Do you want to use an AI-generated review based on your star rating?</label>
                     </div>

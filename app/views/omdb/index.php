@@ -9,7 +9,22 @@
 <div class="row justify-content-center">
     <div class="col-12 col-sm-10 col-md-9 col-xl-8">
         <?php 
-             
+
+        
+        if (isset($_SESSION['review_placed']) && $_SESSION['review_placed']) {
+            echo '<p>Review placed successfully!</p>';
+            // Unset the session variable so the message only shows once
+            unset($_SESSION['review_placed']);
+        }
+        // Get the date string
+        $dateString = $data['movie']['Released'];
+      
+        // Create a DateTime object from the string
+        $date = DateTime::createFromFormat('d M Y', $dateString);
+
+        // Extract the year, this is to be sent along in the URL
+        $year = $date->format('Y');
+        
             if (isset($data['movie']['Response']) && $data['movie']['Response'] == "False") {
                 echo "<h3>Movie search results for: " . htmlspecialchars($data['title']) . " </h3> 
                       <p>No movie details found.</p>";
@@ -47,11 +62,13 @@
                             <h3>
                                <strong>Give A Rating For: </strong>" . $data['movie']['Title'] . "
                                    <span class='star-rating'>
-                                      <a id='5star' href='review/" . $data['movie']['Title'] . "/5' data-rating='5'><i class='fa-solid fa-star'></i></a>
-                                      <a id='4stars' href='review/" . $data['movie']['Title'] . "/4' data-rating='4'><i class='fa-solid fa-star'></i></a>
-                                      <a id='3stars' href='review/" . $data['movie']['Title'] . "/3' data-rating='3'><i class='fa-solid fa-star'></i></a>
-                                      <a id='2stars' href='review/" . $data['movie']['Title'] . "/2' data-rating='2'><i class='fa-solid fa-star'></i></a>
-                                      <a id='1stars' href='review/" . $data['movie']['Title'] . "/1' data-rating='1'><i class='fa-solid fa-star'></i></a>
+                                     <a id='5star' href='review/" . urlencode($data['movie']['Title']) . "/" . urlencode($year) . "/5' data-rating='5'><i class='fa-solid fa-star'></i></a>
+                                      <a id='4stars' href='review/" . urlencode($data['movie']['Title']) . "/" . urlencode($year) . "/4' data-rating='4'><i class='fa-solid fa-star'></i></a>
+                                      <a id='3stars' href='review/" . urlencode($data['movie']['Title']) . "/" . urlencode($year) . "/3' data-rating='3'><i class='fa-solid fa-star'></i></a>
+                                      <a id='2stars' href='review/" . urlencode($data['movie']['Title']) . "/" . urlencode($year) . "/2' data-rating='2'><i class='fa-solid fa-star'></i></a>
+                                      <a id='1stars' href='review/" . urlencode($data['movie']['Title']) . "/" . urlencode($year) . "/1' data-rating='1'><i class='fa-solid fa-star'></i></a>
+
+
                                    </span>
                             </h3>
                             

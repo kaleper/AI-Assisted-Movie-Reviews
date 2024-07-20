@@ -49,11 +49,26 @@ class GeminiApi {
       return $review_text;
   }
    //TODO: FIX THIS:
-  public function createReview() {
-    // $db = db_connect();
-    // $statement = $db->prepare("select * from users WHERE username = :name;");
-    // $statement->bindValue(':name', $username);
-    // $statement->execute();
-    // $rows = $statement->fetch(PDO::FETCH_ASSOC);
+  public function createReview($movie_title, $star_amount, $review_text, $year) {
+
+    // Start connection to database
+    $db = db_connect();
+
+    // Use prepared statement with SQL
+    $sql = "INSERT INTO movie_reviews (movie_title, movie_year, created_at, anonymous_review, username, rating) 
+            VALUES (:movie_title, :movie_year, NOW(), :anonymous_review, :username, :rating)";
+    $statement = $db->prepare($sql);
+
+    // Bind values to the placeholders
+    $statement->bindValue(':movie_title', $movie_title);
+    $statement->bindValue(':movie_year', $year);
+      // TODO: Replace when I add logic in for anonymous person
+    $statement->bindValue(':anonymous_review', 1);
+    // TODO: Replace when I add logic in for logged in user to post review
+    $statement->bindValue(':username', "FAKEUSER");
+    $statement->bindValue(':rating', $star_amount);
+
+    $statement->execute();
+    
   }
 }

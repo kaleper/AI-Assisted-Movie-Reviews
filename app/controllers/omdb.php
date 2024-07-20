@@ -30,8 +30,8 @@ class OMdb extends Controller {
     }
    
     
-    
-    public function review($movie_title, $rating) {
+    //TODO: Use Year here
+    public function review($movie_title, $year, $rating) {
       $star_amount = 0;
       $stars = '';
       switch ($rating) {
@@ -101,7 +101,8 @@ class OMdb extends Controller {
         'movie_title' => $movie_title,
         'stars' => $stars,
         'review_text' => $review_text,
-        'star_amount' => $star_amount
+        'star_amount' => $star_amount,
+        'year' => $year
     ]);
     
     
@@ -111,13 +112,20 @@ class OMdb extends Controller {
      public function post_review() {
          $review_text = $_REQUEST['review_text'];
          $movie_title = $_REQUEST['movie_title'];
-         $star_amount = $_REQUEST['star_amount'];
-         var_dump($star_amount);
-         var_dump($movie_title);
-         var_dump($review_text);
+         // Cast needed bc it comes out as a string
+         $star_amount = (int) $_REQUEST['star_amount'];
+         // var_dump($star_amount);
+         $year = $_REQUEST['year'];
 
-    //TODO: FIX THIS:
-         // $review = $this->model('createReview');
+         $gemini = $this->model('GeminiApi');
+         $post_review= $gemini->createReview($movie_title, $star_amount, $review_text, $year);
+
+
+         // Set the session variable to indicate a review was placed
+         $_SESSION['review_placed'] = true;
+         // Redirect back
+         //TODO: Fix this view, decide how to display that I placed a review okay
+         header ('location: /omdb/index');
     
     }
 }
