@@ -61,8 +61,8 @@ class GeminiApi {
     $db = db_connect();
 
     // Use prepared statement with SQL
-    $sql = "INSERT INTO movie_reviews (movie_title, movie_year, created_at, anonymous_review, username, rating) 
-            VALUES (:movie_title, :movie_year, NOW(), :anonymous_review, :username, :rating)";
+    $sql = "INSERT INTO movie_reviews (movie_title, movie_year, created_at, anonymous_review, username, rating, review_text) 
+            VALUES (:movie_title, :movie_year, NOW(), :anonymous_review, :username, :rating, :review_text)";
     $statement = $db->prepare($sql);
 
     // Bind values to the placeholders
@@ -71,6 +71,7 @@ class GeminiApi {
     $statement->bindValue(':anonymous_review', $anonymous_review);
     $statement->bindValue(':username', $username);
     $statement->bindValue(':rating', $star_amount);
+    $statement->bindValue(':review_text', $review_text);
 
     $statement->execute();
     
